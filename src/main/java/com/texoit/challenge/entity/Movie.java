@@ -3,6 +3,8 @@ package com.texoit.challenge.entity;
 import java.io.Serializable;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -31,9 +33,11 @@ public class Movie implements Serializable {
 	@Column(name="winner", nullable=false)
 	private Boolean winner;
 	
+	@JsonIgnore
 	@ManyToMany(mappedBy = "movies",cascade=CascadeType.ALL )
 	private Set<Producer> producers;
 	
+	@JsonIgnore
 	@ManyToMany(mappedBy = "movies",cascade=CascadeType.ALL )
 	private Set<Studio> studios;
 	

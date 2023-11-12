@@ -13,7 +13,7 @@ public class CSVUtil {
 	public static final String COLUMN_DELIMITER=";";
 	public static final String LIST_DELIMITER=",|\\ and ";
 	public static final String WORD_FOR_TRUE="yes";
-	
+	public static final String DEFAULT_MOVIELIST_FILE="movielist.csv";
 	
 	public static List<List<String>> toRows(InputStream file){
 		boolean isFirst=true;
@@ -31,12 +31,6 @@ public class CSVUtil {
 		    	
 		    	if(line==null)break;
 		    	columns.addAll(Arrays.asList(line.split(COLUMN_DELIMITER)));
-//			    try (Scanner columnScanner = new Scanner()) {
-//			    	columnScanner.useDelimiter(COLUMN_DELIMITER);
-//			        while (columnScanner.hasNext()) {
-//			        	columns.add(columnScanner.next());
-//			        }
-//			    }
 			    rows.add(columns);
 		    }
 		}

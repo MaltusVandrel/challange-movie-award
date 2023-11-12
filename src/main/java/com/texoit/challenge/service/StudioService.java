@@ -1,6 +1,6 @@
 package com.texoit.challenge.service;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -35,7 +35,7 @@ public class StudioService {
 				studio = dao.save(studio);
 			}
 			if(studio.getMovies()==null) {
-				studio.setMovies(new HashSet<Movie>());
+				studio.setMovies(new ArrayList<Movie>());
 			}
 			studio.getMovies().add(movie);
 			dao.save(studio);

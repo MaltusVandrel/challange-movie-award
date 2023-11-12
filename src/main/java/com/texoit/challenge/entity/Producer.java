@@ -1,6 +1,7 @@
 package com.texoit.challenge.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -32,7 +33,7 @@ public class Producer implements Serializable {
 			  name = "movieproducer", 
 			  joinColumns =@JoinColumn(name = "idproducer"), 
 			  inverseJoinColumns = @JoinColumn(name = "idmovie"))
-	private Set<Movie> movies;
+	private List<Movie> movies;
 
 	public Producer() {
 		super();
@@ -57,11 +58,11 @@ public class Producer implements Serializable {
 		this.name = name;
 	}
 
-	public Set<Movie> getMovies() {
+	public List<Movie> getMovies() {
 		return movies;
 	}
 
-	public void setMovies(Set<Movie> movies) {
+	public void setMovies(List<Movie> movies) {
 		this.movies = movies;
 	}
 	

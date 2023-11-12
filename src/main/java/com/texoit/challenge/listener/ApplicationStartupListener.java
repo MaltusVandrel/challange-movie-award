@@ -30,7 +30,7 @@ public class ApplicationStartupListener implements ApplicationListener<ContextRe
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		ClassLoader cl = Thread.currentThread().getContextClassLoader();
-		InputStream in = cl.getResourceAsStream("movielist.csv");
+		InputStream in = cl.getResourceAsStream(CSVUtil.DEFAULT_MOVIELIST_FILE);
 		List<List<String>> rows = CSVUtil.toRows(in);
 		
 		for (List<String> row : rows) {
