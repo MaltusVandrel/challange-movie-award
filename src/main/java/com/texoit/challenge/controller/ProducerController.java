@@ -1,6 +1,5 @@
 package com.texoit.challenge.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.texoit.challenge.entity.Producer;
 import com.texoit.challenge.service.ProducerService;
 
 @RestController
@@ -21,9 +19,12 @@ public class ProducerController {
 	private ProducerService service;
 	
 	@GetMapping("/awarded-producers") 
-	public ResponseEntity<Map> getAwardedProducers() {
-		HttpStatus status = HttpStatus.OK;
-		return new ResponseEntity<Map>(service.getProducerAwardMinAndMaxInterval(),status);
+	public ResponseEntity getProducerAwardMinAndMaxInterval() {
+		try {
+			return new ResponseEntity<Map>(service.getProducerAwardMinAndMaxInterval(),HttpStatus.OK);
+		}catch(Exception e) {
+			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	} 
 
 }
